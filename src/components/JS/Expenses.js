@@ -5,7 +5,7 @@ import ExpenseItem from "./ExpenseItems";
 function Expenses(props) {
   
   return (
-    <div id='listExpenses' className="expenses">
+    <div className="expenses">
         {props.items.map(item =>  <ExpenseItem title={item.title} amount={item.amount} date={item.date}/>)}
     </div>
   );
