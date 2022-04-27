@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Expenses from "./components/Expenses/JS/Expenses.js";
 import NewExpenses from "./components/ExpensesNew/JS/NewExpenses.js";
 function App() {
@@ -17,14 +18,16 @@ function App() {
     amount: 91.46,
     date: new Date(2022,2,5)
   }];
-
-  const saveExpenseData = (expenseData) => {
-    console.log(expenseData);
+  const [expenses, setExpenses] = useState(dataExpenses);
+  const saveExpenseData = (expenseNew) => {
+    setExpenses(prevExpenses => {
+      return [expenseNew, ...dataExpenses];
+    });
   }
   return (
     <div>
       <NewExpenses onSaveExpenseData={saveExpenseData}/>
-      <Expenses items={dataExpenses}/>
+      <Expenses items={expenses}/>
     </div>
   );
 }

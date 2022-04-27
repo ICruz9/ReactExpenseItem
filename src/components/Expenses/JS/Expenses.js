@@ -15,7 +15,7 @@ function Expenses(props) {
   return (
     <div className="expenses">
       <ExpensesFilter selectedYear={enteredYear} onFilterByYear={filterByYear}/>
-      {items.map(item =>  <ExpenseItem title={item.title} amount={item.amount} date={item.date}/>)}
+      {items.map(item =>  <ExpenseItem  title={item.title} amount={item.amount} date={item.date}/>)}
     </div>
   );
 }
